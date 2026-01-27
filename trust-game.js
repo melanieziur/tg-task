@@ -59,7 +59,7 @@ const trust_trial = {
   }
 };
 
-console.log("lmao");
+console.log("lol");
 
 const trust_game = {
   timeline: [trust_trial],

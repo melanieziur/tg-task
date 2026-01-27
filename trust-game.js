@@ -59,6 +59,7 @@ const trust_trial = {
   }
 };
 
+console.log("lmao")
 const trust_game = {
   timeline: [trust_trial],
   timeline_variables: test_stimuli

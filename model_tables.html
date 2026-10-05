@@ -1,0 +1,547 @@
+<!doctype html><meta charset='utf-8'><title>Model tables</title><style>
+body{font-family:Arial,sans-serif;margin:24px;color:#111}
+table{border-collapse:collapse;font-size:13px;margin-bottom:32px}
+th,td{border:1px solid #ccc;padding:6px 8px;text-align:left;vertical-align:top}
+th{background:#f0f0f0} tr:nth-child(even){background:#fafafa}
+</style><h2>Models</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>k</th>
+      <th>Starting belief</th>
+      <th>Learning rate</th>
+      <th>Choice rule</th>
+      <th>Stickiness</th>
+      <th>β by last outcome</th>
+      <th>Free parameters</th>
+      <th>What it assumes</th>
+      <th>Median fitted values</th>
+      <th>ΔBIC (summed)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>M6</td>
+      <td>3</td>
+      <td>pre-task rating</td>
+      <td>reciprocate vs. defect</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha_r, alpha_d, beta</td>
+      <td>Starts at the pre-task stereotype rating; separate learning rates after reciprocation and defection; chooses by belief (stakes ignored).</td>
+      <td>alpha_r = 0.09, alpha_d = 0.09, beta = 4.21</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>M7b</td>
+      <td>4</td>
+      <td>pre-task rating</td>
+      <td>reciprocate vs. defect</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha_r, alpha_d, beta, phi</td>
+      <td>Starts at the pre-task stereotype rating; separate learning rates after reciprocation and defection; chooses by belief (stakes ignored); tends to repeat its last choice.</td>
+      <td>alpha_r = 0.10, alpha_d = 0.09, beta = 3.74, phi = 0.19</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>M8</td>
+      <td>5</td>
+      <td>pre-task rating</td>
+      <td>reciprocate vs. defect</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>alpha_r, alpha_d, beta_r, beta_d, phi</td>
+      <td>Starts at the pre-task stereotype rating; separate learning rates after reciprocation and defection; chooses by belief (stakes ignored); tends to repeat its last choice; choice consistency depends on the last outcome.</td>
+      <td>alpha_r = 0.09, alpha_d = 0.10, beta_r = 3.64, beta_d = 3.95, phi = 0.18</td>
+      <td>228</td>
+    </tr>
+    <tr>
+      <td>M6v</td>
+      <td>3</td>
+      <td>pre-task rating</td>
+      <td>reciprocate vs. defect</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha_r, alpha_d, beta</td>
+      <td>Starts at the pre-task stereotype rating; separate learning rates after reciprocation and defection; chooses by expected value (stakes matter).</td>
+      <td>alpha_r = 0.21, alpha_d = 0.04, beta = 0.63</td>
+      <td>241</td>
+    </tr>
+    <tr>
+      <td>M7</td>
+      <td>3</td>
+      <td>pre-task rating</td>
+      <td>single</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha, beta, phi</td>
+      <td>Starts at the pre-task stereotype rating; one learning rate for everything; chooses by belief (stakes ignored); tends to repeat its last choice.</td>
+      <td>alpha = 0.11, beta = 2.61, phi = 0.39</td>
+      <td>249</td>
+    </tr>
+    <tr>
+      <td>M7bv</td>
+      <td>4</td>
+      <td>pre-task rating</td>
+      <td>reciprocate vs. defect</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha_r, alpha_d, beta, phi</td>
+      <td>Starts at the pre-task stereotype rating; separate learning rates after reciprocation and defection; chooses by expected value (stakes matter); tends to repeat its last choice.</td>
+      <td>alpha_r = 0.21, alpha_d = 0.05, beta = 0.54, phi = 0.36</td>
+      <td>285</td>
+    </tr>
+    <tr>
+      <td>M2</td>
+      <td>3</td>
+      <td>0.5</td>
+      <td>reciprocate vs. defect</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha_r, alpha_d, beta</td>
+      <td>Starts at 0.5; separate learning rates after reciprocation and defection; chooses by belief (stakes ignored).</td>
+      <td>alpha_r = 0.10, alpha_d = 0.04, beta = 4.54</td>
+      <td>307</td>
+    </tr>
+    <tr>
+      <td>M3b</td>
+      <td>4</td>
+      <td>0.5</td>
+      <td>reciprocate vs. defect</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha_r, alpha_d, beta, phi</td>
+      <td>Starts at 0.5; separate learning rates after reciprocation and defection; chooses by belief (stakes ignored); tends to repeat its last choice.</td>
+      <td>alpha_r = 0.10, alpha_d = 0.05, beta = 4.07, phi = 0.29</td>
+      <td>338</td>
+    </tr>
+    <tr>
+      <td>M5</td>
+      <td>2</td>
+      <td>pre-task rating</td>
+      <td>single</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha, beta</td>
+      <td>Starts at the pre-task stereotype rating; one learning rate for everything; chooses by belief (stakes ignored).</td>
+      <td>alpha = 0.11, beta = 3.55</td>
+      <td>392</td>
+    </tr>
+    <tr>
+      <td>M7v</td>
+      <td>3</td>
+      <td>pre-task rating</td>
+      <td>single</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha, beta, phi</td>
+      <td>Starts at the pre-task stereotype rating; one learning rate for everything; chooses by expected value (stakes matter); tends to repeat its last choice.</td>
+      <td>alpha = 0.13, beta = 0.19, phi = 0.50</td>
+      <td>480</td>
+    </tr>
+    <tr>
+      <td>M4</td>
+      <td>5</td>
+      <td>0.5</td>
+      <td>reciprocate vs. defect</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>alpha_r, alpha_d, beta_r, beta_d, phi</td>
+      <td>Starts at 0.5; separate learning rates after reciprocation and defection; chooses by belief (stakes ignored); tends to repeat its last choice; choice consistency depends on the last outcome.</td>
+      <td>alpha_r = 0.11, alpha_d = 0.04, beta_r = 4.36, beta_d = 5.44, phi = 0.28</td>
+      <td>490</td>
+    </tr>
+    <tr>
+      <td>M3bv</td>
+      <td>4</td>
+      <td>0.5</td>
+      <td>reciprocate vs. defect</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha_r, alpha_d, beta, phi</td>
+      <td>Starts at 0.5; separate learning rates after reciprocation and defection; chooses by expected value (stakes matter); tends to repeat its last choice.</td>
+      <td>alpha_r = 0.43, alpha_d = 0.06, beta = 0.42, phi = 0.42</td>
+      <td>509</td>
+    </tr>
+    <tr>
+      <td>M_cong_SP</td>
+      <td>5</td>
+      <td>pre-task rating</td>
+      <td>by congruence (3)</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha_c, alpha_i, alpha_amb, beta, phi</td>
+      <td>Starts at the pre-task stereotype rating; separate learning rates for congruent, incongruent, and ambiguous partners; chooses by belief (stakes ignored); tends to repeat its last choice.</td>
+      <td>alpha_c = 0.11, alpha_i = 0.07, alpha_amb = 0.10, beta = 3.11, phi = 0.42</td>
+      <td>528</td>
+    </tr>
+    <tr>
+      <td>M3</td>
+      <td>3</td>
+      <td>0.5</td>
+      <td>single</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha, beta, phi</td>
+      <td>Starts at 0.5; one learning rate for everything; chooses by belief (stakes ignored); tends to repeat its last choice.</td>
+      <td>alpha = 0.35, beta = 1.32, phi = 0.53</td>
+      <td>542</td>
+    </tr>
+    <tr>
+      <td>M2v</td>
+      <td>3</td>
+      <td>0.5</td>
+      <td>reciprocate vs. defect</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha_r, alpha_d, beta</td>
+      <td>Starts at 0.5; separate learning rates after reciprocation and defection; chooses by expected value (stakes matter).</td>
+      <td>alpha_r = 0.40, alpha_d = 0.06, beta = 0.48</td>
+      <td>584</td>
+    </tr>
+    <tr>
+      <td>M3v</td>
+      <td>3</td>
+      <td>0.5</td>
+      <td>single</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha, beta, phi</td>
+      <td>Starts at 0.5; one learning rate for everything; chooses by expected value (stakes matter); tends to repeat its last choice.</td>
+      <td>alpha = 0.43, beta = 0.08, phi = 0.58</td>
+      <td>617</td>
+    </tr>
+    <tr>
+      <td>M_cong_S</td>
+      <td>4</td>
+      <td>pre-task rating</td>
+      <td>by congruence (3)</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha_c, alpha_i, alpha_amb, beta</td>
+      <td>Starts at the pre-task stereotype rating; separate learning rates for congruent, incongruent, and ambiguous partners; chooses by belief (stakes ignored).</td>
+      <td>alpha_c = 0.11, alpha_i = 0.07, alpha_amb = 0.07, beta = 4.33</td>
+      <td>638</td>
+    </tr>
+    <tr>
+      <td>M5v</td>
+      <td>2</td>
+      <td>pre-task rating</td>
+      <td>single</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha, beta</td>
+      <td>Starts at the pre-task stereotype rating; one learning rate for everything; chooses by expected value (stakes matter).</td>
+      <td>alpha = 0.07, beta = 0.24</td>
+      <td>765</td>
+    </tr>
+    <tr>
+      <td>M_cong_SPv</td>
+      <td>5</td>
+      <td>pre-task rating</td>
+      <td>by congruence (3)</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha_c, alpha_i, alpha_amb, beta, phi</td>
+      <td>Starts at the pre-task stereotype rating; separate learning rates for congruent, incongruent, and ambiguous partners; chooses by expected value (stakes matter); tends to repeat its last choice.</td>
+      <td>alpha_c = 0.10, alpha_i = 0.08, alpha_amb = 0.07, beta = 0.28, phi = 0.51</td>
+      <td>805</td>
+    </tr>
+    <tr>
+      <td>M_cong_P</td>
+      <td>5</td>
+      <td>0.5</td>
+      <td>by congruence (3)</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha_c, alpha_i, alpha_amb, beta, phi</td>
+      <td>Starts at 0.5; separate learning rates for congruent, incongruent, and ambiguous partners; chooses by belief (stakes ignored); tends to repeat its last choice.</td>
+      <td>alpha_c = 0.15, alpha_i = 0.02, alpha_amb = 0.02, beta = 3.22, phi = 0.44</td>
+      <td>815</td>
+    </tr>
+    <tr>
+      <td>M0</td>
+      <td>0</td>
+      <td>—</td>
+      <td>none</td>
+      <td>P = 0.5</td>
+      <td>no</td>
+      <td>no</td>
+      <td>—</td>
+      <td>Null: random 50/50 choice, no learning.</td>
+      <td>—</td>
+      <td>881</td>
+    </tr>
+    <tr>
+      <td>M1</td>
+      <td>2</td>
+      <td>0.5</td>
+      <td>single</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha, beta</td>
+      <td>Starts at 0.5; one learning rate for everything; chooses by belief (stakes ignored).</td>
+      <td>alpha = 0.18, beta = 1.42</td>
+      <td>920</td>
+    </tr>
+    <tr>
+      <td>M_type_SP</td>
+      <td>8</td>
+      <td>pre-task rating</td>
+      <td>by partner type (6)</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha_TC, alpha_TI, alpha_UC, alpha_UI, alpha_TA, alpha_UA, beta, phi</td>
+      <td>Starts at the pre-task stereotype rating; a separate learning rate for each of the 6 partner types; chooses by belief (stakes ignored); tends to repeat its last choice.</td>
+      <td>alpha_TC = 0.09, alpha_TI = 0.07, alpha_UC = 0.06, alpha_UI = 0.11, alpha_TA = 0.08, alpha_UA = 0.12, beta = 3.54, phi = 0.41</td>
+      <td>931</td>
+    </tr>
+    <tr>
+      <td>M_type_S</td>
+      <td>7</td>
+      <td>pre-task rating</td>
+      <td>by partner type (6)</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha_TC, alpha_TI, alpha_UC, alpha_UI, alpha_TA, alpha_UA, beta</td>
+      <td>Starts at the pre-task stereotype rating; a separate learning rate for each of the 6 partner types; chooses by belief (stakes ignored).</td>
+      <td>alpha_TC = 0.10, alpha_TI = 0.06, alpha_UC = 0.05, alpha_UI = 0.11, alpha_TA = 0.08, alpha_UA = 0.12, beta = 4.70</td>
+      <td>953</td>
+    </tr>
+    <tr>
+      <td>M1v</td>
+      <td>2</td>
+      <td>0.5</td>
+      <td>single</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha, beta</td>
+      <td>Starts at 0.5; one learning rate for everything; chooses by expected value (stakes matter).</td>
+      <td>alpha = 0.27, beta = 0.09</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>M_cong_Sv</td>
+      <td>4</td>
+      <td>pre-task rating</td>
+      <td>by congruence (3)</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha_c, alpha_i, alpha_amb, beta</td>
+      <td>Starts at the pre-task stereotype rating; separate learning rates for congruent, incongruent, and ambiguous partners; chooses by expected value (stakes matter).</td>
+      <td>alpha_c = 0.09, alpha_i = 0.06, alpha_amb = 0.07, beta = 0.34</td>
+      <td>1059</td>
+    </tr>
+    <tr>
+      <td>M_cong</td>
+      <td>4</td>
+      <td>0.5</td>
+      <td>by congruence (3)</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha_c, alpha_i, alpha_amb, beta</td>
+      <td>Starts at 0.5; separate learning rates for congruent, incongruent, and ambiguous partners; chooses by belief (stakes ignored).</td>
+      <td>alpha_c = 0.11, alpha_i = 0.01, alpha_amb = 0.01, beta = 4.97</td>
+      <td>1113</td>
+    </tr>
+    <tr>
+      <td>M_type_P</td>
+      <td>8</td>
+      <td>0.5</td>
+      <td>by partner type (6)</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha_TC, alpha_TI, alpha_UC, alpha_UI, alpha_TA, alpha_UA, beta, phi</td>
+      <td>Starts at 0.5; a separate learning rate for each of the 6 partner types; chooses by belief (stakes ignored); tends to repeat its last choice.</td>
+      <td>alpha_TC = 0.10, alpha_TI = 0.00, alpha_UC = 0.02, alpha_UI = 0.02, alpha_TA = 0.01, alpha_UA = 0.00, beta = 10.31, phi = 0.40</td>
+      <td>1149</td>
+    </tr>
+    <tr>
+      <td>M_type_SPv</td>
+      <td>8</td>
+      <td>pre-task rating</td>
+      <td>by partner type (6)</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>alpha_TC, alpha_TI, alpha_UC, alpha_UI, alpha_TA, alpha_UA, beta, phi</td>
+      <td>Starts at the pre-task stereotype rating; a separate learning rate for each of the 6 partner types; chooses by expected value (stakes matter); tends to repeat its last choice.</td>
+      <td>alpha_TC = 0.10, alpha_TI = 0.04, alpha_UC = 0.00, alpha_UI = 0.24, alpha_TA = 0.03, alpha_UA = 0.11, beta = 0.38, phi = 0.48</td>
+      <td>1250</td>
+    </tr>
+    <tr>
+      <td>M_type</td>
+      <td>7</td>
+      <td>0.5</td>
+      <td>by partner type (6)</td>
+      <td>belief: β(Q − 0.5)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha_TC, alpha_TI, alpha_UC, alpha_UI, alpha_TA, alpha_UA, beta</td>
+      <td>Starts at 0.5; a separate learning rate for each of the 6 partner types; chooses by belief (stakes ignored).</td>
+      <td>alpha_TC = 0.10, alpha_TI = 0.00, alpha_UC = 0.03, alpha_UI = 0.02, alpha_TA = 0.01, alpha_UA = 0.00, beta = 14.45</td>
+      <td>1292</td>
+    </tr>
+    <tr>
+      <td>M_congv</td>
+      <td>4</td>
+      <td>0.5</td>
+      <td>by congruence (3)</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha_c, alpha_i, alpha_amb, beta</td>
+      <td>Starts at 0.5; separate learning rates for congruent, incongruent, and ambiguous partners; chooses by expected value (stakes matter).</td>
+      <td>alpha_c = 0.42, alpha_i = 0.18, alpha_amb = 0.30, beta = 0.13</td>
+      <td>1311</td>
+    </tr>
+    <tr>
+      <td>M_type_Sv</td>
+      <td>7</td>
+      <td>pre-task rating</td>
+      <td>by partner type (6)</td>
+      <td>expected value: β·Δa(1.5Q − 1)</td>
+      <td>no</td>
+      <td>no</td>
+      <td>alpha_TC, alpha_TI, alpha_UC, alpha_UI, alpha_TA, alpha_UA, beta</td>
+      <td>Starts at the pre-task stereotype rating; a separate learning rate for each of the 6 partner types; chooses by expected value (stakes matter).</td>
+      <td>alpha_TC = 0.04, alpha_TI = 0.04, alpha_UC = 0.00, alpha_UI = 0.22, alpha_TA = 0.01, alpha_UA = 0.15, beta = 0.41</td>
+      <td>1455</td>
+    </tr>
+  </tbody>
+</table><h2>Parameters</h2><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Parameter</th>
+      <th>Meaning</th>
+      <th>Range</th>
+      <th>Used in</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>alpha</td>
+      <td>Learning rate: how far belief moves toward each outcome</td>
+      <td>0 to 1</td>
+      <td>M1, M3, M5, M7, M1v, M3v, M5v, M7v</td>
+    </tr>
+    <tr>
+      <td>beta</td>
+      <td>Choice consistency: how strongly belief drives the choice</td>
+      <td>0.001 to 5 (value); 0.01 to 20 (belief)</td>
+      <td>M1, M2, M3, M3b, M5, M6, M7, M7b, M_cong, M_cong_P, M_cong_S, M_cong_SP, M1v, M2v, M3v, M3bv, M5v, M6v, M7v, M7bv, M_congv, M_cong_Sv, M_cong_SPv, M_type, M_type_P, M_type_S, M_type_SP, M_type_Sv, M_type_SPv</td>
+    </tr>
+    <tr>
+      <td>alpha_r</td>
+      <td>Learning rate after the partner reciprocates</td>
+      <td>0 to 1</td>
+      <td>M2, M3b, M4, M6, M7b, M8, M2v, M3bv, M6v, M7bv</td>
+    </tr>
+    <tr>
+      <td>alpha_d</td>
+      <td>Learning rate after the partner defects</td>
+      <td>0 to 1</td>
+      <td>M2, M3b, M4, M6, M7b, M8, M2v, M3bv, M6v, M7bv</td>
+    </tr>
+    <tr>
+      <td>phi</td>
+      <td>Stickiness: tendency to repeat the last choice with this partner</td>
+      <td>-5 to 5</td>
+      <td>M3, M3b, M4, M7, M7b, M8, M_cong_P, M_cong_SP, M3v, M3bv, M7v, M7bv, M_cong_SPv, M_type_P, M_type_SP, M_type_SPv</td>
+    </tr>
+    <tr>
+      <td>beta_r</td>
+      <td>Choice consistency when the last outcome was reciprocation (or no feedback yet)</td>
+      <td>0.01 to 20</td>
+      <td>M4, M8</td>
+    </tr>
+    <tr>
+      <td>beta_d</td>
+      <td>Choice consistency when the last outcome was a defection</td>
+      <td>0.01 to 20</td>
+      <td>M4, M8</td>
+    </tr>
+    <tr>
+      <td>alpha_c</td>
+      <td>Learning rate for congruent partners (behavior fits the stereotype)</td>
+      <td>0 to 1</td>
+      <td>M_cong, M_cong_P, M_cong_S, M_cong_SP, M_congv, M_cong_Sv, M_cong_SPv</td>
+    </tr>
+    <tr>
+      <td>alpha_i</td>
+      <td>Learning rate for incongruent partners (behavior violates the stereotype)</td>
+      <td>0 to 1</td>
+      <td>M_cong, M_cong_P, M_cong_S, M_cong_SP, M_congv, M_cong_Sv, M_cong_SPv</td>
+    </tr>
+    <tr>
+      <td>alpha_amb</td>
+      <td>Learning rate for ambiguous partners (return 50%)</td>
+      <td>0 to 1</td>
+      <td>M_cong, M_cong_P, M_cong_S, M_cong_SP, M_congv, M_cong_Sv, M_cong_SPv</td>
+    </tr>
+    <tr>
+      <td>alpha_TC</td>
+      <td>Learning rate for the trustworthy occupation, returns 80% (congruent) partner</td>
+      <td>0 to 1</td>
+      <td>M_type, M_type_P, M_type_S, M_type_SP, M_type_Sv, M_type_SPv</td>
+    </tr>
+    <tr>
+      <td>alpha_TI</td>
+      <td>Learning rate for the trustworthy occupation, returns 20% (incongruent) partner</td>
+      <td>0 to 1</td>
+      <td>M_type, M_type_P, M_type_S, M_type_SP, M_type_Sv, M_type_SPv</td>
+    </tr>
+    <tr>
+      <td>alpha_UC</td>
+      <td>Learning rate for the untrustworthy occupation, returns 20% (congruent) partner</td>
+      <td>0 to 1</td>
+      <td>M_type, M_type_P, M_type_S, M_type_SP, M_type_Sv, M_type_SPv</td>
+    </tr>
+    <tr>
+      <td>alpha_UI</td>
+      <td>Learning rate for the untrustworthy occupation, returns 80% (incongruent) partner</td>
+      <td>0 to 1</td>
+      <td>M_type, M_type_P, M_type_S, M_type_SP, M_type_Sv, M_type_SPv</td>
+    </tr>
+    <tr>
+      <td>alpha_TA</td>
+      <td>Learning rate for the trustworthy occupation, returns 50% (ambiguous) partner</td>
+      <td>0 to 1</td>
+      <td>M_type, M_type_P, M_type_S, M_type_SP, M_type_Sv, M_type_SPv</td>
+    </tr>
+    <tr>
+      <td>alpha_UA</td>
+      <td>Learning rate for the untrustworthy occupation, returns 50% (ambiguous) partner</td>
+      <td>0 to 1</td>
+      <td>M_type, M_type_P, M_type_S, M_type_SP, M_type_Sv, M_type_SPv</td>
+    </tr>
+  </tbody>
+</table>
